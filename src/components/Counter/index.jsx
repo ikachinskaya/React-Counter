@@ -8,9 +8,7 @@ class Counter extends Component {
     };
   }
   counterClick = () => {
-    let { counter } = this.state;
-    let { step } = this.props;
-    this.setState({ counter: counter + step });  
+    this.setState((state, props) => ({ counter: state.counter + props.step }));
   };
 
   render() {
@@ -19,7 +17,7 @@ class Counter extends Component {
     return (
       <div>
         <button onClick={this.counterClick}>Добавить</button>
-        <div>При нажатии значение увеличится на {step} раз</div>
+        <div>При нажатии значение увеличится на {step} </div>
         <div>Добавлено {counter}</div>
       </div>
     );
